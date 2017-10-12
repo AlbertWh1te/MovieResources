@@ -12,3 +12,5 @@ class Movies(models.Model):
 
     def __unicode__(self):
         return str(self.name)
+    class Meta:
+       ordering = ['-create_date']
