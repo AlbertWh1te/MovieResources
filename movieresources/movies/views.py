@@ -22,3 +22,6 @@ def index(request):
         movies = paginator.page(paginator.num_pages)
 
     return render_to_response('index.html', {"contacts": movies})
+
+def spider(requests):
+    return "done"
