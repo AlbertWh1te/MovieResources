@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.shortcuts import render_to_response
-
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from movies import  models,spider,utils
+from movies import  models, spider, utils, serializers
+
+# DRF
+from rest_framework import generics,pagination
+
+class ExamplePagination(pagination.PageNumberPagination):       
+       page_size = 10
 
 def first_init(n):
     for i in range(1,n):
@@ -32,7 +38,17 @@ def index(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         movies = paginator.page(paginator.num_pages)
+    return render_to_response('index.html', {"movies": movies})	
 
+class MoviePagination(pagination.PageNumberPagination):
+    page_size = 100
+    page_size_query_param = 'page_size'
+    max_page_size = 1000
+
+class MovieListView(generics.ListAPIView):
+    queryset = models.Movies.objects.all()
+    serializer_class = serializers.MoviesSerializers
+    pagination_class =  MoviePagination
 
 
 def init(requests):
