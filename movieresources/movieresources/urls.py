@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from movies.views import index
+from movies.views import index,init
 
 urlpatterns = [
+    url(r'^init', init),
+    url(r'^guard', admin.site.urls),
     url(r'', index),
-    url(r'^guard/', admin.site.urls),
 ]

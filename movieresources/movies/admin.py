@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from  movies import models
 from django.contrib import admin
-import models
+
 # Register your models here.
 class MoviesAdmin(admin.ModelAdmin):
     template_name = "index.html"
