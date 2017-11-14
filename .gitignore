@@ -103,7 +103,7 @@ ENV/
 .mysqlpass
 .sqlite3
 config
-movieresources/movieresources/dbconfig.py
+movieresources/movieresources/settings.py
 .DS_Store
 node_modules
 test/e2e/mock-template-build
