@@ -102,3 +102,5 @@ ENV/
 # pass
 .mysqlpass
 .sqlite3
+config
+movieresources/movieresoures/settings.py
