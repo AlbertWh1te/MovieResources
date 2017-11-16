@@ -110,3 +110,4 @@ test/e2e/mock-template-build
 *.log
 dist/
 .vscode/
+movies_fontend/src/components/HelloWorld.vue
