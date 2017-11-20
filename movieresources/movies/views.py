@@ -13,11 +13,11 @@ class ExamplePagination(pagination.PageNumberPagination):
        page_size = 10
 
 def first_init(n):
-    for i in range(1,n):
+    for i in range(30000,n):
         info = spider.number_to_info(i)
         print(info)
         if info and not info.hasNone():
-            duplicate = models.Movies.objects.filter(name=info['name'])
+            duplicate = len(models.Movies.objects.filter(name=info['name']))
             if not duplicate:
                 movie = models.Movies(
                     name = info['name'],
@@ -41,16 +41,27 @@ def index(request):
     return render_to_response('index.html', {"movies": movies})	
 
 class MoviePagination(pagination.PageNumberPagination):
-    page_size = 100
+    page_size = 20
     page_size_query_param = 'page_size'
-    max_page_size = 1000
+    max_page_size = 100
 
 class MovieListView(generics.ListAPIView):
     queryset = models.Movies.objects.all()
     serializer_class = serializers.MoviesSerializers
     pagination_class =  MoviePagination
 
+class SearchListView(generics.ListAPIView):
+    serializer_class = serializers.MoviesSerializers
+    pagination_class =  MoviePagination
+
+    def get_queryset(self):
+        queryset = []
+        name = self.request.query_params.get('name')
+        if name:
+            queryset = models.Movies.objects.filter(name__contains=name)
+        return queryset
 
 def init(requests):
-    first_init(1000)
-    return "done"
+    first_init(900000)
+    movies_list = models.Movies.objects.all()
+    return render_to_response('index.html', {"movies": movies_list})	

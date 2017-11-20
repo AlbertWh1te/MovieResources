@@ -1,6 +1,8 @@
  # utils for crawler  and etc
 
 
+# time out settings 
+time_out = 20
 
 # internet stuff
 

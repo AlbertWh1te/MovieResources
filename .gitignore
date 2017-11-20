@@ -103,11 +103,9 @@ ENV/
 .mysqlpass
 .sqlite3
 config
-movieresources/movieresources/settings.py
 .DS_Store
 node_modules
 test/e2e/mock-template-build
 *.log
 dist/
 .vscode/
-movies_fontend/src/components/HelloWorld.vue

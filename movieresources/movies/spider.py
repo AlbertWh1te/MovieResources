@@ -5,7 +5,7 @@ movie spider
 
 import requests
 from bs4 import BeautifulSoup
-from movies.utils import base_url, headers, time_config
+from movies.utils import base_url, headers, time_config, time_out
 
 
 number_to_url = lambda number:base_url + time_config + str(number)+".html"
@@ -24,7 +24,7 @@ class MovieInfo(dict):
 def url_to_raw(url):
     raw = None
     try:
-        raw = requests.get(url,headers=headers)
+        raw = requests.get(url,headers=headers,timeout=20)
     except Exception as e:
         print(e)
     return raw

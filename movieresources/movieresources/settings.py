@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'rest_framework',
     'movies.apps.MoviesConfig',
 ]
@@ -83,7 +84,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -128,5 +128,3 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 20
 }
 CORS_ORIGIN_ALLOW_ALL = True
-
-
