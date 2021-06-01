@@ -6,7 +6,7 @@ Django==1.11.7
 idna==2.6
 pytz==2017.3
 requests==2.18.4
-urllib3==1.22
+urllib3==1.26.5
 beautifulsoup4==4.6.0
 bs4==0.0.1
 certifi==2017.7.27.1
@@ -16,7 +16,7 @@ django-filter==1.1.0
 idna==2.6
 pytz==2017.3
 requests==2.18.4
-urllib3==1.22
+urllib3==1.26.5
 astroid==1.5.3
 beautifulsoup4==4.6.0
 bs4==0.0.1
@@ -35,5 +35,5 @@ pylint==1.7.4
 pytz==2017.3
 requests==2.18.4
 six==1.11.0
-urllib3==1.22
+urllib3==1.26.5
 wrapt==1.10.11
